@@ -27,7 +27,7 @@ platforms :ruby do
     gem "paperclip", "~> 3.0.3"
     gem "carrierwave"
     gem "dragonfly"
-    gem "mini_magick"
+    gem "rmagick"
   end
 
   group :mongoid do

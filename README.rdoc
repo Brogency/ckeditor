@@ -1,3 +1,6 @@
+= Fork description
+This fork uses rmagick instead of original mini_magick.
+
 = Ckeditor
 
 CKEditor is a ready-for-use HTML text editor designed to simplify web content creation. It's a WYSIWYG editor that brings common word processor features directly to your web pages. Enhance your website experience with our community maintained editor. http://ckeditor.com/
@@ -29,26 +32,26 @@ Currently supported next backends:
 For active_record orm is used paperclip gem (it's by default).
 
   gem "paperclip"
-  
+
   rails generate ckeditor:install --orm=active_record --backend=paperclip
-  
+
 ==== ActiveRecord + carrierwave
 
   gem "carrierwave"
-  gem "mini_magick"
+  gem "rmagick"
 
   rails generate ckeditor:install --orm=active_record --backend=carrierwave
 
 ==== Mongoid + paperclip
 
   gem 'mongoid-paperclip', :require => 'mongoid_paperclip'
-  
+
   rails generate ckeditor:install --orm=mongoid --backend=paperclip
 
 ==== Mongoid + carrierwave
 
   gem "carrierwave-mongoid", :require => 'carrierwave/mongoid'
-  gem "mini_magick"
+  gem "rmagick"
 
   rails generate ckeditor:install --orm=mongoid --backend=carrierwave
 
@@ -95,7 +98,7 @@ In order to configure the ckeditor default options, create files:
 jQuery sample:
 
   <script type='text/javascript' charset='UTF-8'>
-    $(document).ready(function(){  
+    $(document).ready(function(){
       $('form[data-remote]').bind("ajax:before", function(){
         for (instance in CKEDITOR.instances){
           CKEDITOR.instances[instance].updateElement();
@@ -125,7 +128,7 @@ To use cancan with Ckeditor, add this to an initializer.
 
 At this point, all authorization will fail and no one will be able to access the filebrowser pages.
 To grant access, add this to Ability#initialize
-  
+
   # Always performed
   can :access, :ckeditor   # needed to access Ckeditor filebrowser
 
@@ -149,7 +152,7 @@ To grant access, add this to Ability#initialize
   rake test
   rake test CKEDITOR_ORM=mongoid
   rake test CKEDITOR_BACKEND=carrierwave
-  
+
   rake test:controllers
   rake test:generators
   rake test:integration
